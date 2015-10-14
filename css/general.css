@@ -1,0 +1,196 @@
+
+body {
+	background-image: url(../images/bg-page.png);
+	margin: 50px auto;
+	width: 1200px;
+	position: relative;
+
+}
+
+
+
+header {
+	border-bottom: 3px solid #000000;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+	box-shadow: 0px 0px  6px #1240AB;
+}
+
+input[type="text"], input[type="password"]  {
+	margin-left: 35px;
+	width: 13em;
+	height:2em;
+}
+
+fieldset {
+	position:relative;
+	border: 2px solid #000;
+}
+
+form {
+	padding: 10px;
+}
+
+
+p {
+	font-family: "Palatino Linotype", Baskerville, serif;
+	color: #000;
+	line-height: 150%;
+	margin-top: 10px;
+    margin-left: 60px;
+	position:relative;
+	margin: 0 auto;
+	padding: 5px;
+}
+
+footer {
+	width: 100%;
+	position: relative;
+	clear:both;
+	height: 100px;
+	border: 2px solid #000;
+	border-bottom-right-radius: 45px;
+	background-color: #89A100;
+}
+
+#header {
+	background-color: #89A100;
+	background-repeat: repeat-x;
+	border-top-left-radius: 45px;
+	border: 2px solid #000;
+	width: 100%;
+	height: 60px;
+}
+
+.gamesblock {
+	display: inline;
+	float: left;
+	padding: 45px;
+}
+
+.gamesblock  input{
+	font-size: 1.2em;
+	width: 350px;
+	height: 350px;
+	margin: 20px;
+	border: 4px solid #000;
+	box-shadow: 0px 0px 5px 10px #000;
+	
+}
+
+.sidebar {
+	color: #000;
+	position: relative;
+	float:right;
+	width: 300px;
+	
+}
+
+.sidebar .logout {
+	padding-top: 15px;
+}
+
+.login , .logout{
+	background-color: #FFF473;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-bottom: 5px;
+	z-index: 1;	
+	min-height: 50px;
+	width: 280px;
+	border-top: 20px solid #89A100;
+	border-left: 2px dotted #ff6a00;
+	border-right: 2px dotted #ff6a00;
+	border-bottom: 2px dotted #ff6a00;
+	border-radius: 15px 15px 0px 0px;
+	box-shadow: 5px 6px 8px rgba(0,0,0,.5);
+	font-size: 1em;
+	font-family: 'Gravitas One', 'Arial Black', serif;
+	font-weight: normal;
+}
+
+.logout p {
+	margin-left: 80px;	
+}
+
+.logout button {
+	padding: 5px;
+	width: 8em;
+}
+
+.logout section {
+	margin-left: 30px;
+	margin-bottom:20px;
+}
+
+.login  section {
+	margin-left: 50px;
+	margin-top: 0px;
+	float:left;
+	display:inline;
+	width: 12em;
+	height:2em;
+}
+
+.login input[type="text"] {
+	margin-bottom: 5px;
+}
+
+.login legend, .content legend {
+	margin-left: 25%;
+}
+
+.content{
+	position:relative;
+	width: 890px;
+	min-height:600px;
+	float:left;
+	border-right: 3px solid #000;
+	background-color: #DADAD8;
+}
+
+.content * {
+	position:relative;
+}
+
+.content img {
+	width: 100%;
+	height: 100%;
+	margin: 0px auto;
+	border-right: 3px solid #000;
+}
+ 
+ a {	
+	 color: #000;
+	 text-decoration:none;
+	 font-size: 2em;
+	 margin-left: 30%;
+ }
+ 
+a:visited {
+    color: #800080; 
+	font-size: 2em;
+	margin-left: 30%;
+   } 
+   
+a:hover {
+    color: #800000;
+	font-size: 2em;
+	margin-left: 30%;
+    text-decoration: underline;
+   }
+
+.content form{
+	margin-left: 25%;
+}
+
+.content .button {
+	margin-left: 32%;
+}
+
+
+
+

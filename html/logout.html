@@ -1,0 +1,7 @@
+<div class="logout">
+	<p>Привет, <?= unserialize($_SESSION["user"])->firstName ?>!</p> 
+	<section>
+		<button onclick="toCabinet();">Кабинет</button>
+		<button onclick="logout();">Выход</button>
+	</section>
+</div>

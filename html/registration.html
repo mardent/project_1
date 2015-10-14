@@ -1,0 +1,84 @@
+﻿<?php 
+
+?>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../css/general.css">
+		<link href='http://fonts.googleapis.com/css?family=Gravitas+One' rel='stylesheet'>
+		<script src="../js/registration.js"></script>
+		<script src="../js/jquery-2.1.3.js"></script>
+		<title>Игры online</title>
+	</head>
+
+	<body>
+	
+	<!--Шапка-->
+	<div id="header">
+
+	</div>
+	
+	<!--Блок входа/выхода-->
+	<div class ="sidebar">
+		<?php
+
+		?>
+	</div>
+	
+	<!--Блок основоного контента-->
+	<div class="content">
+	<fieldset>
+	<legend>Регистрация</legend>
+				<form>
+				<table>
+					<tr>
+						<td><label for="login">Логин</label></td>
+						<td><input 	type="text" id="login" size="16" maxlength="30"
+									placeholder="логин" autofocus required></td>
+					</tr>
+					<tr>
+						<td><label for="password">Пароль</label></td>
+						<td><input type="password" id="password" size="16" maxlength="128"
+								   placeholder="пароль"></td>
+					</tr>
+					<tr>
+						<td><label for="confirmPassword">Подтверждение</label></td>
+						<td><input type="password" id="confirmPassword" size="16" maxlength="128"
+								   placeholder="подтверждение"></td>
+					</tr>
+					<tr>
+						<td><label for="firstName">Имя</label></td>
+						<td><input type="text" id="firstName" size="16" maxlength="50" placeholder="имя"></td>
+					</tr>
+					<tr>
+						<td><label for="secondName">Фамилия</label></td>
+						<td><input type="text" id="secondName" size="16" maxlength="50" placeholder="фамилия"></td>
+					</tr>
+					<tr>
+						<td><label for="email">E-mail</label></td>
+						<td><input type="text" id="email" size="16" maxlength="50" placeholder="e-mail"></td>
+					</tr>
+					<tr>
+						<td><label for="phone">Телефон</label></td>
+						<td><input type="text" id="phone" size="16" maxlength="20" placeholder="телефон"></td>
+					</tr>
+				</table>
+				</form>
+				<section class = "button">
+					<button onclick="clickBack();"> Назад</button>
+					<button onclick="checkRegistrationForm($('#login').val(), $('#password').val(), $('#confirmPassword').val(), $('#firstName').val(), $('#secondName').val(), $('#email').val(), $('#phone').val());">
+							Зарегистрироваться
+					</button>
+				</section>
+		<br><label>&nbsp &nbsp * - Обязательные поля.</label>
+	</fieldset>
+	</div>
+	
+	<!--Подвал-->
+	<footer>
+	</footer>
+			
+		
+	</body>
+</html>

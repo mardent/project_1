@@ -1,0 +1,15 @@
+<div class = "login ">
+	<fieldset>
+	<legend>Вход</legend>
+	<form>
+		<br>
+		<input type="text" id="login" maxlength="30" autofocus placeholder="Логин">
+		<br>
+		<input type="password" id="password"  maxlength="128" placeholder="Пароль">
+	</form>
+	<section>
+		<button onclick="checkLoginForm($('#login').val(), $('#password').val());">Войти</button>
+		<button onclick="location.href='../html/registration.html';">Регистрация</button>
+	</section>
+	</fieldset>
+</div>
