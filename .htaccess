@@ -40,10 +40,9 @@ Deny from all
 	#Блокируем все скрипты, которые пытаются изменить переменную _REQUEST:
 	#RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
 	RewriteBase /
-	RewriteCond %{HTTP_HOST} ^test
+	RewriteCond %{HTTP_HOST} ^project
 	RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
-	RewriteRule ^index\.php$ http://test [R=301,L]
-	RewriteRule ^include$ index.php?id=403 [R=301,L]
+	RewriteRule ^index\.php$ http://project [R=301,L]
 	RewriteRule ^(choose)\.html$ /index.php?id=$1 [NC]
 </IfModule>
 

@@ -9,10 +9,9 @@
 		switch($_POST["action"]) {
 			case "authorization":
 				$login = clearStr($_POST["login"]);
-				$password = clearInt($_POST["password"]);
-				
+				$password = clearStr($_POST["password"]);
+				$password = clearStr($_POST["password"]);	
 				$user = getUser($login, $password);
-				
 				if ($user == null) {
 					echo "<result>Неправильный логин или пароль</result>";
 				} else {
@@ -24,17 +23,16 @@
 			
 			case "registration":
 				$login = clearStr($_POST["login"]);
-				$password = clearInt($_POST["password"]);
+				$password =  clearStr($_POST["password"]);
 				$firstName = clearStr($_POST["firstName"]);
 				$secondName = clearStr($_POST["secondName"]);
 				$email = clearStr($_POST["email"]);
-				$phone = clearInt($_POST["phone"]);			
+				$phone = clearInt($_POST["phone"]);					
 				if (!isLoginFree($login)) {
 					echo "<result>Пользователь с таким логином уже существует</result>";
 				} elseif (!isMailFree($email)) {
 					echo "<result>Пользователь с таким email адресом уже существует</result>";
 				} else {
-					$login = getHash($login);
 					addUser($login, $password, $firstName, $secondName, $email, $phone);
 					echo "<result>ok</result>";
 				}

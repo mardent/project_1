@@ -1,7 +1,7 @@
 <?php
 	require_once 'include/db.inc.php';
 	session_start();
-	require_once 'include/lib.php';
+	include 'include/lib.php';
 ?>
 <!doctype html>
 <html>
@@ -42,13 +42,11 @@
 				case 'choose': include_once 'html/choose_game.html'; break;
 				default: include_once 'html/choose_game.html';
 			}
-			
-			/*$test = addUser('234','234','2342','234234','432','234');
-			if($test){
-				echo "Норм";
-			}else{
-				echo "неа";
-			}*/
+		 $pass = "123123";
+		 $solt = md5(time());
+		 echo passEncrypt($pass)."<br>";
+		 echo passEncrypt($pass, $solt);
+
 		?>
 	</div>
 	
