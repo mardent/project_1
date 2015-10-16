@@ -20,6 +20,38 @@ function clearStr($data){
 			$res = sha1($crypt);
 			return $res;
   }
+  
+//Дата на русском
+function getRusDate($padeg = true ,$timestamp = false){
+		$rus_name = [
+					'Jan' => array('Январь','Января'),
+					'Feb' => array('Февраль','Февраля'),
+					'Mar' => array('Март','Марта'),
+					'Apr' => array('Апрель','Апреля'),
+					'May' => array('Май','Мая'),
+					'Jun' => array('Июнь','Июня'),
+					'Jul' => array('Июль','Июля'),
+					'Aug' => array('Август','Августа'),
+					'Sep' => array('Сентябрь','Сентября'),
+				   'Oct' => array('Октябрь','Октября'),
+				   'Nov' => array('Ноябрь','Ноября'),
+				   'Dec' => array('Декабрь','Декабря')
+				];
+	if(!$timestamp){
+		$year = date('Y');
+		$month =  date('M');
+		$day = date('d');
+	}else{
+		$year = date('Y',$timestamp);
+		$month =  date('M', $timestamp);
+		$day = date('d', $timestamp);
+	}
+	if($padeg)
+		$res = $day." ".$rus_name[$month][1]." ".$year;
+	else
+		$res = $day." ".$rus_name[$month][0]." ".$year;
+	return $res;
+}
 
 //Создание пользователя с подготовленным запросом
 	function addUser($login, $password, $firstName, $secondName, $email, $phone) {

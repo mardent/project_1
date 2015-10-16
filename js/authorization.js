@@ -29,6 +29,10 @@ function enter(login, password) {
     });
 }
 
+function toCabinet() {
+	document.location.replace("http://project/cabinet/index.php");
+}
+
 function logout() {
     $.ajax({
 		dataType: "xml",
@@ -49,3 +53,4 @@ function logout() {
         }
     });
 }
+

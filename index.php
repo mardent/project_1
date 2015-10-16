@@ -1,12 +1,11 @@
 <?php
 	require_once 'include/db.inc.php';
 	session_start();
-	include 'include/lib.php';
+	require_once 'include/lib.php';
 ?>
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="css/general.css">
 		<link href='http://fonts.googleapis.com/css?family=Gravitas+One' rel='stylesheet'>
 		<script src="js/authorization.js"></script>
@@ -19,10 +18,19 @@
 	
 	<!--Шапка-->
 	<div id="header">
+		
+		<?php 
+		$date = getRusDate();
+			echo <<<TIME
+		<blockquote>
+				$date
+		</blockquote>
+TIME;
+		?>
 
 	</div>
 	
-	<!--Блок входа/выхода-->
+	<!--Блок входа-->
 	<div class ="sidebar">
 		<?php
 			if (!isset($_SESSION["user"])) {
@@ -34,7 +42,7 @@
 		?>
 	</div>
 	
-	<!--Блок основоного контента-->
+	<!--Основной блок-->
 	<div class="content">
 		<?php
 			$id= $_GET['id'];
@@ -42,11 +50,7 @@
 				case 'choose': include_once 'html/choose_game.html'; break;
 				default: include_once 'html/choose_game.html';
 			}
-		 $pass = "123123";
-		 $solt = md5(time());
-		 echo passEncrypt($pass)."<br>";
-		 echo passEncrypt($pass, $solt);
-
+			
 		?>
 	</div>
 	

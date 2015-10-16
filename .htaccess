@@ -1,21 +1,32 @@
-#Будут показываться файлы любого содержания, если только к ним напрямую обратиться.
-#Или индексный файл, если не явного обращения к одному из файлов. В случае отсутствия индексного файла получена 403 ошибка.
+#Р‘СѓРґСѓС‚ РїРѕРєР°Р·С‹РІР°С‚СЊСЃСЏ С„Р°Р№Р»С‹ Р»СЋР±РѕРіРѕ СЃРѕРґРµСЂР¶Р°РЅРёСЏ, РµСЃР»Рё С‚РѕР»СЊРєРѕ Рє РЅРёРј РЅР°РїСЂСЏРјСѓСЋ РѕР±СЂР°С‚РёС‚СЊСЃСЏ.
+#РР»Рё РёРЅРґРµРєСЃРЅС‹Р№ С„Р°Р№Р», РµСЃР»Рё РЅРµ СЏРІРЅРѕРіРѕ РѕР±СЂР°С‰РµРЅРёСЏ Рє РѕРґРЅРѕРјСѓ РёР· С„Р°Р№Р»РѕРІ. Р’ СЃР»СѓС‡Р°Рµ РѕС‚СЃСѓС‚СЃС‚РІРёСЏ РёРЅРґРµРєСЃРЅРѕРіРѕ С„Р°Р№Р»Р° РїРѕР»СѓС‡РµРЅР° 403 РѕС€РёР±РєР°.
 Options -Indexes 
 Allow from all
 
-AddDefaultCharset UTF-8
+#СѓСЃС‚Р°РЅРѕРІРєР° РєРµС€Р° РЅР° 1 С‡Р°СЃ
+# Р—Р°РіРѕР»РѕРІРѕРє Cache-Control
+<IfModule mod_headers.c>
+        Header append Cache-Control "public"
+</IfModule>
+ 
+# Р—Р°РіРѕР»РѕРІРѕРє Expires
+<IfModule mod_expires.c>
+        ExpiresActive On ExpiresDefault "access plus 1 hours"
+</IfModule>
 
-#назначение интексного файла
+AddDefaultCharset utf-8
+
+#РЅР°Р·РЅР°С‡РµРЅРёРµ РёРЅС‚РµРєСЃРЅРѕРіРѕ С„Р°Р№Р»Р°
 <IfModule dir_module>
     DirectoryIndex index.php
 </IfModule>
 
-#Включаем отслеживание сим-ссылок
+#Р’РєР»СЋС‡Р°РµРј РѕС‚СЃР»РµР¶РёРІР°РЅРёРµ СЃРёРј-СЃСЃС‹Р»РѕРє
 Options +FollowSymLinks
 
 Options -Includes
 
-#задает страницу ошибки
+#Р·Р°РґР°РµС‚ СЃС‚СЂР°РЅРёС†Сѓ РѕС€РёР±РєРё
 ErrorDocument 404   /errors.php?id=404
 ErrorDocument 403   /errors.php?id=403
 <Files "404.php">
@@ -24,7 +35,7 @@ Deny from all
 Allow from 127.0.0.1
 </Files>
 
-#запрет доступа к файлу .htaccess 
+#Р·Р°РїСЂРµС‚ РґРѕСЃС‚СѓРїР° Рє С„Р°Р№Р»Сѓ .htaccess 
 <Files ".htaccess">
 Order Deny,Allow
 Deny from all
@@ -33,20 +44,22 @@ Deny from all
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	#Блокируем все ссылки, содержащие <script>
-	#RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
-	#Блокируем все скрипты, которые пытаются изменить переменные PHP Globals:
-	#RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
-	#Блокируем все скрипты, которые пытаются изменить переменную _REQUEST:
-	#RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+	#Р‘Р»РѕРєРёСЂСѓРµРј РІСЃРµ СЃСЃС‹Р»РєРё, СЃРѕРґРµСЂР¶Р°С‰РёРµ <script>
+	RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+	#Р‘Р»РѕРєРёСЂСѓРµРј РІСЃРµ СЃРєСЂРёРїС‚С‹, РєРѕС‚РѕСЂС‹Рµ РїС‹С‚Р°СЋС‚СЃСЏ РёР·РјРµРЅРёС‚СЊ РїРµСЂРµРјРµРЅРЅС‹Рµ PHP Globals:
+	RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+	#Р‘Р»РѕРєРёСЂСѓРµРј РІСЃРµ СЃРєСЂРёРїС‚С‹, РєРѕС‚РѕСЂС‹Рµ РїС‹С‚Р°СЋС‚СЃСЏ РёР·РјРµРЅРёС‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ _REQUEST:
+	RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+	RewriteRule ^(.*)$ index.php 
 	RewriteBase /
-	RewriteCond %{HTTP_HOST} ^project
-	RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+	#RewriteCond %{HTTP_HOST} ^project
+	#RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
 	RewriteRule ^index\.php$ http://project [R=301,L]
+	RewriteRule ^(cabinet)/index\.php$ http://project/$1 [R=301,L]
 	RewriteRule ^(choose)\.html$ /index.php?id=$1 [NC]
 </IfModule>
 
-# настройки php.ini
+# РЅР°СЃС‚СЂРѕР№РєРё php.ini
 <ifModule mod_php.c>
   php_value	upload_max_filesize	32M
   php_value	post_max_size		10M
@@ -54,7 +67,7 @@ Deny from all
   php_value	max_execution_time 200
 </ifModule>
 
-#резрешение обрабатывать файлы .html как php, .pl .py .jsp .asp .htm .shtml .sh .cgi как script и т д
+#СЂРµР·СЂРµС€РµРЅРёРµ РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ С„Р°Р№Р»С‹ .html РєР°Рє php, .pl .py .jsp .asp .htm .shtml .sh .cgi РєР°Рє script Рё С‚ Рґ
 AddHandler application/x-httpd-php .html
 AddHandler cgi-script .pl .py .jsp .asp .htm .shtml .sh .cgi
 AddType application/x-javascript .js
@@ -62,7 +75,7 @@ AddType text/css .css
 AddType text/xml .xml
 AddType application/octet-stream .doc .mov .avi .pdf .xls 
 
-# сжатие данных
+# СЃР¶Р°С‚РёРµ РґР°РЅРЅС‹С…
 <ifModule mod_deflate.c>
 	AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
 </ifModule>

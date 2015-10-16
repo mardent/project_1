@@ -38,6 +38,9 @@
 				}
 			break;
 			
+			case "cabinet": 
+				echo "<result>ok</result>";
+			
 			case "logout":
 				unset($_SESSION["user"]);
 				echo "<result>ok</result>";

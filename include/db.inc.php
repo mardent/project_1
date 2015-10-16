@@ -19,7 +19,7 @@ class User {
 }
 
 // Отправка заголовка что бы отобрался нормальный текст.
-header('Content-Type: text/html; charset=UTF-8');
+#header('Content-Type: text/html; charset=UTF-8');
 
 	define('DB_HOST','localhost');
 	define('DB_LOGIN','mysql');

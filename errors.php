@@ -5,7 +5,6 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="../css/general.css">
 		<link href='http://fonts.googleapis.com/css?family=Gravitas+One' rel='stylesheet'>
 		<script src="../js/authorization.js"></script>
@@ -37,17 +36,17 @@
 	$id= $_GET['id'];
 			switch($id){
 				case '404': echo <<<ECHO1
-	<figure>
-		<figcaption>
-			<img src="images/404.png"  alt="Страница не найдена">
-		</figcaption>
-	</figure>
-	<a href="index.php">Вернуться на главную</a>
+				<figure>
+					<figcaption>
+						<img src="images/404.png"  alt="Страница не найдена">
+					</figcaption>
+				</figure>
+				<a href="index.php">Вернуться на главную</a>
 ECHO1;
 				break;
 				case '403': echo <<<ECHO2
 				<p>Доступ запрещен</p><br>
-				<a href='index.php'>Вернуться на главную</a>
+				<a href='../index.php'>Вернуться на главную</a>
 ECHO2;
 				break;
 			}
