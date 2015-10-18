@@ -80,8 +80,11 @@ function getRusDate($padeg = true ,$timestamp = false){
 		global $link;
 		$query = sprintf("SELECT * FROM USERS WHERE LOGIN = '%s'", 
 			mysqli_real_escape_string($link, $login));
-		if(!$result = mysqli_query($link, $query))
+		if(!$result = mysqli_query($link, $query)){
+			mysqli_free_result($result);
+			mysqli_close($link);
 			return false;
+		}
 		if (mysqli_num_rows($result) != 0) {
 			$row = mysqli_fetch_array ($result);
 			$solt = $row["SOLT"];
