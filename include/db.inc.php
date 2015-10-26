@@ -25,7 +25,7 @@ class User {
 	define('DB_LOGIN','mysql');
 	define('DB_PASS','mysql');
 	define('DB_NAME','WEBDEV_DB');
-	$link = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASS, DB_NAME) or die (mysqli_connect_error());
+	$link = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASS, DB_NAME) or die ('Ошибка соединения с базой:'.mysqli_connect_error());
 	
 	
 	?>

@@ -2,6 +2,15 @@
 	require_once 'include/db.inc.php';
 	session_start();
 	require_once 'include/lib.php';
+		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");                   
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s", 10000) . " GMT");
+		header("Cache-Control: no-store, no-cache, must-revalidate");         
+		header("Cache-Control: post-check=0, pre-check=0", false);           
+		header("Pragma: no-cache");                                           
+	setcookie('on','1');
+	if(!$_COOKIE['on']){
+		echo "Для корректной работы сайта влючите cookie";
+	}
 ?>
 <!doctype html>
 <html>
@@ -15,7 +24,7 @@
 	</head>
 
 	<body>
-	
+
 	<!--Шапка-->
 	<div id="header">
 		
