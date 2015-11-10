@@ -1,13 +1,6 @@
 <?php
 /*Функция обработки принятых данных типа integer*/
-    function clearInt($data){
-	return abs((int)$data);
-}
 
-/*Функция обработки принятых данных типа string*/
-function clearStr($data){
-	return addslashes(trim(strip_tags($data)));
-}
 
 /*Получает пароль из формы и хеширует c временной меткой регистрации */
 	function passEncrypt($pass, $solt = false){
